@@ -1,0 +1,30 @@
+.banner {
+    height:80vh;
+    position: relative;
+}
+.inputField{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    content: "";
+    left: 0;
+}
+#search{
+    border: 1px solid rgb(194, 194, 194);
+    background: rgb(255, 255, 255);
+    padding: 7px 12px;
+    width: 15%;
+}
+#searchBTN{
+    border-radius: 50px;
+    border: none;
+    width: 15%;
+    background: rgb(255, 0, 106);
+    color: white;
+    padding: 7px 12px;
+    margin-left:-15%;
+}

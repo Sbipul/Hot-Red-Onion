@@ -1,0 +1,23 @@
+.signUpBg{
+    background-image: url('https://i.ibb.co/F06zNzC/6-signup.png');
+    height: 95vh;
+    background-size: cover;
+    object-fit: cover;
+    background-repeat: no-repeat;
+}
+.signPut{
+    border: .5px solid rgb(195, 195, 195);
+    width: 100%;
+    padding: 9px 7px;
+    margin: 9px 0px;
+    background: rgb(255, 255, 255);
+    border-radius: 4px;
+}
+.signPut:focus{
+    border: .5px solid rgb(195, 195, 195);
+    width: 100%;
+    padding: 9px 7px;
+    margin: 7px 0px;
+    background: rgb(255, 255, 255);
+    border-radius: 4px;
+}

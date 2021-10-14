@@ -1,0 +1,16 @@
+input:focus{
+    background: rgb(255, 0, 106);
+    border-radius: 50px;
+    border: 1px solid rgba(0, 0, 0, 0);
+    color: white;
+}
+input{
+    background: rgba(38, 38, 38, 0);
+    border-radius: 50px;
+    border: 1px solid rgba(0, 0, 0, 0);
+    color: rgb(0, 0, 0);
+    border: 1px solid rgba(0, 0, 0, 0);
+}
+.shadoW{
+    box-shadow: 5px 5px 15px rgb(46, 46, 46);
+}
