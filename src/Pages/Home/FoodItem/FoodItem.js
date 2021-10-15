@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, Col } from 'react-bootstrap';
 import { useHistory } from 'react-router';
+import './FoodItem.css'
 
 const FoodItem = (props) => {
 
@@ -11,8 +12,8 @@ const FoodItem = (props) => {
     }
     return (
         <Col>
-            <Card onClick={viewDetails} className="border-0">
-                <Card.Img className="w-50 mx-auto" variant="top" src={img} />
+            <Card onClick={viewDetails} className="border-0 cardHover">
+                <Card.Img className="w-50 mx-auto py-5" variant="top" src={img} />
                 <Card.Body>
                 <Card.Title>{name}</Card.Title>
                 <Card.Text>{des.slice(0,30)}</Card.Text>

@@ -1,0 +1,18 @@
+.meal{
+    width: 33%;
+    text-align: center;
+    border: none;
+    border-radius: 0px;
+}
+.meal:focus{
+    width: 33%;
+    outline: none;
+    text-align: center;
+    border: none;
+    color: black;
+    border-radius: 0px;
+    cursor: pointer;
+    background: none;
+    border-bottom: 5px solid rgb(255, 0, 106);
+}
+

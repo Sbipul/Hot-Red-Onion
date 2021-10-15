@@ -1,16 +1,21 @@
 import React from 'react';
-import {Container, Nav, Navbar } from 'react-bootstrap';
+import {Badge, Container, Nav, Navbar } from 'react-bootstrap';
 import { HashLink } from 'react-router-hash-link';
 import img from '../../utilities/logo2.jpg'
 import { BsCartCheckFill } from "react-icons/bs";
 import './Header.css'
 import { useHistory } from 'react-router';
+import useAuth from '../../hooks/useAuth';
 
 const Header = () => {
 
+    const {user,logOut,quantity} = useAuth()
     const history = useHistory()
     const sign = () => {
         history.push('/sign')
+    }
+    const login = () => {
+        history.push('/login')
     }
     return (
         <Navbar bg="light" variant="light" className="shadoW" sticky="top" expand="lg">
@@ -32,8 +37,10 @@ const Header = () => {
                     navbarScroll
                 >
                     <div className="d-flex align-items-center">
-                    <Nav.Link as={HashLink} to="/home#cart"><BsCartCheckFill style={{color:"rgb(255, 0, 106)"}} className="fs-2 me-3"/></Nav.Link>
-                        <input className="rounded-pill px-3 py-2 me-3" type="submit"  value="Login"></input>
+                    <Nav.Link as={HashLink} to="/cart"><BsCartCheckFill style={{color:"rgb(255, 0, 106)"}} className="fs-2"/><Badge bg="warning" className="text-dark">{quantity}</Badge></Nav.Link>
+                        {
+                            user.email ? <input className="rounded-pill px-3 py-2 me-3" type="submit" onClick={logOut}  value="Log out"></input> : <input className="rounded-pill px-3 py-2 me-3" type="submit" onClick={login}  value="Login"></input>
+                        }
                         <input className="rounded-pill  px-3 py-2 me-3" type="submit" onClick={sign} value="Sign up"></input>
                     </div>
                 </Nav>

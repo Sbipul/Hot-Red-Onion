@@ -17,14 +17,14 @@
     border: 1px solid rgb(194, 194, 194);
     background: rgb(255, 255, 255);
     padding: 7px 12px;
-    width: 15%;
+    width: 25%;
 }
 #searchBTN{
     border-radius: 50px;
     border: none;
-    width: 15%;
+    width: 25%;
     background: rgb(255, 0, 106);
     color: white;
     padding: 7px 12px;
-    margin-left:-15%;
+    margin-left:-25%;
 }

@@ -1,0 +1,32 @@
+.cardHover{
+    box-shadow: 5px 5px 5px rgb(128, 128, 128),-5px -5px 5px rgb(224, 224, 224);
+    overflow: hidden;
+    position: relative;
+}
+
+.cardHover:after {
+    position: absolute;
+    width: 5%;
+    height: 100%;
+    content: "";
+    background: #ff005e;
+    top: 100%;
+    left: 8%;
+    transition: 1s;
+}
+.cardHover:hover:after{
+    top: 0%;
+}
+.cardHover:before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 5%;
+    background: #ff005e;
+    top: 5%;
+    left: 100%;
+    transition: 1s;
+}
+.cardHover:hover:before{
+    left: 0%;
+}

@@ -15,7 +15,7 @@ const Feature = () => {
 
     return (
         <Container>
-            <div style={{width:'42%',textAlign:'left',marginTop:'4rem'}}>
+            <div className="featureText">
                 <h1>Why You Choose Us</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam ipsa sit nobis asperiores autem recusandae corrupti necessitatibus veritatis debitis quidem.</p>
             </div>
