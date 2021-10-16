@@ -14,3 +14,15 @@ input{
 .shadoW{
     box-shadow: 5px 5px 15px rgb(46, 46, 46);
 }
+.anim{
+    animation: bar .5s  infinite ;
+}
+
+@keyframes bar {
+	from {
+		transform: scale(1);
+	}
+	to {
+		transform: scale(2);
+	}
+}

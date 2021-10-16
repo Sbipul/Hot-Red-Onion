@@ -1,0 +1,140 @@
+.box{
+    height: 200px;
+    width: 400px;
+    margin: 0 auto;
+    background: rgb(255, 255, 255);
+    position: relative;
+    overflow: hidden;
+    transition: 2s;
+    display: flex;
+    color: white;
+    align-items: center;
+    justify-content: center;
+}
+.subBox-1{
+    position: absolute;
+    height: 5%;
+    width: 100%;
+    transition: 1s;
+    content: "";
+    left: 100%;
+    top: 0%;
+    background: linear-gradient(to right,rgb(255, 255, 255),rgba(0, 0, 0, 0));
+    animation: boxA 2s  infinite 0s;
+}
+.subBox-2{
+    position: absolute;
+    height: 100%;
+    width: 3%;
+    transition: 1s;
+    content: "";
+    left: 0;
+    top: -100%;
+    background: linear-gradient(to top,rgb(255, 255, 255),rgba(0, 0, 0, 0));
+    animation: boxB 2s  infinite .7s;
+}
+.subBox-3{
+    position: absolute;
+    height: 5%;
+    width: 100%;
+    transition: 1s;
+    content: "";
+    left: -100%;
+    bottom: 0%;
+    background: linear-gradient(to left,rgb(255, 255, 255),rgba(0, 0, 0, 0));
+    animation: boxC 2s  infinite 1.4s;
+}
+.subBox-4{
+    position: absolute;
+    height: 100%;
+    width: 3%;
+    transition: 1s;
+    content: "";
+    right: 0%;
+    bottom: -100%;
+    background: linear-gradient(to bottom,rgb(255, 255, 255),rgba(0, 0, 0, 0));
+    animation: boxD 2s  infinite 2.1s;
+}
+.box:hover{
+    color: rgb(255, 255, 255);
+    background: rgb(255, 0, 106);
+    box-shadow: 5px 5px 5px grey;
+}
+/* .box:hover .subBox-1{
+    left: -100%;
+}
+.box:hover .subBox-2{
+    top: 100%;
+}
+.box:hover .subBox-3{
+    left: 100%;
+}
+.box:hover .subBox-4{
+    bottom: 100%;
+} */
+
+/* @keyframes boxA {
+    from {
+        left: 500%;
+    }
+    to {
+        left: -100%;
+    }
+}
+@keyframes boxB {
+    from {
+        top: -1000%;
+    }
+    to {
+        top: 100%;
+    }
+}
+@keyframes boxC {
+    from {
+        left: -2000%;
+    }
+    to {
+        left: 100%;
+    }
+}
+@keyframes boxD {
+    from {
+        bottom: -4000%;
+    }
+    to {
+        bottom: 100%;
+    }
+} */
+
+@keyframes boxA {
+    from {
+        left: 100%;
+    }
+    to {
+        left: -100%;
+    }
+}
+@keyframes boxB {
+    from {
+        top: -100%;
+    }
+    to {
+        top: 100%;
+    }
+}
+@keyframes boxC {
+    from {
+        left: -100%;
+    }
+    to {
+        left: 100%;
+    }
+}
+@keyframes boxD {
+    from {
+        bottom: -100%;
+    }
+    to {
+        bottom: 100%;
+    }
+}

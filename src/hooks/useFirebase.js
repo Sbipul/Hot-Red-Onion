@@ -1,7 +1,7 @@
 import initAuth from "../Firebase/init";
-import { GoogleAuthProvider,getAuth,signInWithPopup,onAuthStateChanged,signOut } from "firebase/auth";
+import { GoogleAuthProvider,getAuth,signInWithPopup,onAuthStateChanged,createUserWithEmailAndPassword,signOut,signInWithEmailAndPassword } from "firebase/auth";
 import { useEffect, useState } from "react";
-import { useHistory, useParams } from "react-router";
+import { useHistory, useLocation } from "react-router";
 
 
 
@@ -17,17 +17,20 @@ const googleProvider = new GoogleAuthProvider();
 const useFirebase = () => {
 
 
-
 // =========================================================================================================================
 //                                 this area is belongs to authentication start
 // =========================================================================================================================
     const [user,setUser] = useState({})
+    const [email,setEmail] = useState('')
+    const [password,setPassword] = useState('')
+    const [err,setErr] = useState('')
+
+
+ 
 
     const googleSign = () => {
-        signInWithPopup(auth,googleProvider)
-        .then(res => {
-            setUser(res.user)
-        })
+        return signInWithPopup(auth,googleProvider)
+        
     }
 
     onAuthStateChanged(auth, (user) => {
@@ -37,13 +40,40 @@ const useFirebase = () => {
         }
       });
 
+      const handleEmail = e => {
+          setEmail(e.target.value)
+      }
+      const handlePassword = e => {
+          setPassword(e.target.value)
+      }
+
+
+      const handleSignUpMan = () => {
+        createUserWithEmailAndPassword(auth, email, password)
+        .then((res) => {})
+        .catch((error) => {
+            setErr(error.message)
+        });
+    }
+
+
+    const logInMan = () => {
+        signInWithEmailAndPassword(auth, email, password)
+        .then((res) => {
+            setUser(res.user)
+        })
+        .catch((error) => {
+            setErr(error.message)
+        });
+    }
+
 
     const logOut = () => {
         signOut(auth)
         .then(()=>{
             setUser({})
         })
-    }
+      }
 // =========================================================================================================================
 //                                 this area is belongs to authentication end
 // =========================================================================================================================
@@ -83,7 +113,6 @@ const useFirebase = () => {
     const lunch = () => {
         const update2 = [...items]
         const newItem2 = update2.slice(7,13)
-        console.log(newItem2.length)
         setMeals(newItem2)
     }
     const dinner = () => {
@@ -95,20 +124,60 @@ const useFirebase = () => {
 // =========================================================================================================================
 //                                 this area is belongs to menu page end
 // =========================================================================================================================
-    const [quantity,setQuantity] = useState(0)
-const addToCart = (num,price) => {
-    console.log(price)
-    setQuantity(num)
-}
-
+    const [quantities,setQuantities] = useState([])
+    const [prices,setPrices] = useState([])
+    const [names,setNames] = useState([])
+    const [imgs,setImgs] = useState([])
+    const [id,setId] = useState(0)
+    
+        const addToCart = (num,price,id,name,img) => {
+        const newquantities = [...quantities,num]
+        const newPrice = [...prices,price]
+        const newNames = [...names,name]
+        const newimg = [...imgs,img]
+        setPrices(newPrice)
+        setNames(newNames)
+        setImgs(newimg)
+        setId(id)
+        setQuantities(newquantities)
+    }
+    
+    const addedItems = arr => {
+        let total = 0
+        for (const eachItem of arr) {
+            total = total + parseInt(eachItem)
+        }
+        return total
+    }
+    
+    const placeOrder = () => {
+        const zero = [];
+        setQuantities(zero)
+        setPrices(zero)
+        
+    }
     return {
         googleSign,
         user,
+        id,
+        placeOrder,
         logOut,
-        breakfast,lunch,dinner,
+        breakfast,
+        lunch,
+        dinner,
         meals,
         addToCart,
-        quantity
+        prices,
+        quantities,
+        logInMan,
+        items,
+        names,
+        imgs,
+        addedItems,
+        handleEmail,
+        handlePassword,
+        handleSignUpMan,
+        err
     };
 };
 

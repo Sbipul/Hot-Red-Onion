@@ -1,0 +1,12 @@
+.err{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 70vh;
+}
+.error h1 {
+    transform: rotate(-10deg);
+    font-size: 98px;
+    font-weight: 900;
+    color: red;
+}

@@ -4,6 +4,7 @@ import Feature from '../Feature/Feature';
 import Menu from '../Menu/Menu';
 
 const Home = () => {
+
     return (
         <div>
             <Banner/>

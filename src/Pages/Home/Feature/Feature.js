@@ -1,17 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import { Card, Col, Container, Row } from 'react-bootstrap';
 import { FaBusAlt,FaArrowCircleRight } from 'react-icons/fa';
+import { useHistory } from 'react-router';
 import './Feature.css'
 
 const Feature = () => {
 
     const [services,setServices] = useState([])
 
+    const history = useHistory()
     useEffect(()=> {
         fetch('/menu.json')
         .then(res => res.json())
         .then(data => setServices(data))
     },[])
+
+    const why = () => {
+        history.push('/whyUs')
+    }
 
     return (
         <Container>
@@ -31,7 +37,7 @@ const Feature = () => {
                                 <div style={{textAlign:'left',paddingLeft:'15px'}}>
                                     <Card.Title>{service.name}</Card.Title>
                                     <Card.Text>{service.des.slice(0,130)}</Card.Text>
-                                    <p className="fw-bold">See More   <FaArrowCircleRight style={{fontSize:'27px',color:'rgb(1, 231, 158)'}}/></p>
+                                    <p onClick={why} className="fw-bold" style={{cursor:'pointer'}}>See More   <FaArrowCircleRight style={{fontSize:'27px',color:'rgb(1, 231, 158)'}}/></p>
                                 </div>
                                 
                             </div>

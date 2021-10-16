@@ -9,7 +9,11 @@ import useAuth from '../../hooks/useAuth';
 
 const Header = () => {
 
-    const {user,logOut,quantity} = useAuth()
+    const {user,logOut,quantities} = useAuth()
+    let total = 0
+    for (const eachItem of quantities) {
+        total = total + parseInt(eachItem)
+    }
     const history = useHistory()
     const sign = () => {
         history.push('/sign')
@@ -17,6 +21,7 @@ const Header = () => {
     const login = () => {
         history.push('/login')
     }
+    
     return (
         <Navbar bg="light" variant="light" className="shadoW" sticky="top" expand="lg">
             <Container>
@@ -37,7 +42,7 @@ const Header = () => {
                     navbarScroll
                 >
                     <div className="d-flex align-items-center">
-                    <Nav.Link as={HashLink} to="/cart"><BsCartCheckFill style={{color:"rgb(255, 0, 106)"}} className="fs-2"/><Badge bg="warning" className="text-dark">{quantity}</Badge></Nav.Link>
+                    <Nav.Link as={HashLink} to="/cart"><BsCartCheckFill style={{color:"rgb(255, 0, 106)"}} className="fs-2"/><Badge bg="warning" className="text-dark">{total ? <p className="m-0 anim p-0">{total}</p> : 0}</Badge></Nav.Link>
                         {
                             user.email ? <input className="rounded-pill px-3 py-2 me-3" type="submit" onClick={logOut}  value="Log out"></input> : <input className="rounded-pill px-3 py-2 me-3" type="submit" onClick={login}  value="Login"></input>
                         }
