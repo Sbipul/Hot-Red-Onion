@@ -15,7 +15,7 @@ const Login = () => {
                     <input onBlur={handleEmail} className="signPut" placeholder="Your Email" type="email" name="" id="" />
                     <input onBlur={handlePassword} className="signPut" placeholder="Your Password" type="password" name="" id="" />
                 </div>
-                <Link to="/sign">New User?????????????????</Link>
+                <Link to="/sign">New User?????????????</Link>
                 <p>{err}</p>
                 <div style={{width:'30%'}} className="mx-auto mt-2">
                     <button onClick={logInMan} style={{background:'rgb(255, 0, 106)',borderRadius:'4px'}} className="w-100 text-light p-3 border-0">Log in</button><br /><br />
